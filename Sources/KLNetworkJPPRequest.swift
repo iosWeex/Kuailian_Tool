@@ -6,7 +6,7 @@ import SAMKeychain
 import AdSupport
 import UIKit
 
-enum NetworkStatus{
+public enum NetworkStatus{
     case notReachable
     case unknown
     case ethernetOrWiFi
@@ -16,17 +16,17 @@ enum NetworkStatus{
 
 public class NetworkRequest: NSObject {
     
-    var baseURL = "jpp.cs2clean.top"
-    var appBundleName = Bundle.main.bundleIdentifier ?? "com.common.test.w"
-    var TokenKey = "kuailianTokenKey"
-    var SecretKey = "1e8f5d9284720f38effc97dfb8ba76a2"
-    var AppKey = "jppTest"
+    public var baseURL = "jpp.cs2clean.top"
+    public var appBundleName = Bundle.main.bundleIdentifier ?? "com.common.test.w"
+    public var TokenKey = "kuailianTokenKey"
+    public var SecretKey = "1e8f5d9284720f38effc97dfb8ba76a2"
+    public var AppKey = "jppTest"
     
     
-    var isNetwork = false
-    let session: Session
-    static let shared = NetworkRequest()
-    let ceManager = NetworkReachabilityManager.init()
+    public var isNetwork = false
+    public let session: Session
+    public static let shared = NetworkRequest()
+    public let ceManager = NetworkReachabilityManager.init()
     
     
     public func initFirstKey(url:String,Bundle:String,secret:String,appk:String){
@@ -39,7 +39,7 @@ public class NetworkRequest: NSObject {
     let firstGetIdfaStringKey = "firstGetIdfaStringKey"
     let appVCode = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
     
-    func NetWorkReachability(reaasStatus: @escaping(NetworkStatus)->Void){
+    public func NetWorkReachability(reaasStatus: @escaping(NetworkStatus)->Void){
         ceManager!.startListening { (stasdvds) in
             //蜂窝
             if stasdvds == NetworkReachabilityManager.NetworkReachabilityStatus.reachable(.cellular){
@@ -254,7 +254,7 @@ public class NetworkRequest: NSObject {
             }
         }
     }
-    func UPLOAD(url:String,PDFData:Data?,param:[String: String] = [:],_ showHUD:Bool?=false,success: @escaping (Bool,Any) -> Void){
+    public func UPLOAD(url:String,PDFData:Data?,param:[String: String] = [:],_ showHUD:Bool?=false,success: @escaping (Bool,Any) -> Void){
         SVProgressHUD.setHapticsEnabled(false)
         SVProgressHUD.setDefaultMaskType(.custom)
         SVProgressHUD.setMinimumDismissTimeInterval(2)
