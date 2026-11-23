@@ -5,6 +5,7 @@ import SVProgressHUD
 import SAMKeychain
 import AdSupport
 import UIKit
+import CommonCrypto
 
 public enum NetworkStatus{
     case notReachable
